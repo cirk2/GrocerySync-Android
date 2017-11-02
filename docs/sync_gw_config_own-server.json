@@ -1,0 +1,19 @@
+{
+	"log": ["CRUD+", "REST+", "Changes+", "Attach+"],
+	"databases": {
+		"grocery-sync": {
+			"server": "http://couchbase:8091",
+            "username": "tester",
+            "password": "testp4sswd",
+			"sync": `
+function(doc){
+	channel(doc.channels);
+}`,
+			"users": {
+			    "GUEST": {"disabled": false, "admin_channels": ["*"]}
+			}
+
+		}
+
+	}
+}

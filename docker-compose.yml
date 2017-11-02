@@ -1,0 +1,15 @@
+version: '3'
+services:
+  couchbase:
+    image: "couchbase:community-5.0.0"
+    ports:
+    - "8091-8094:8091-8094"
+    - "11210:11210"
+  sync-gw:
+    image: "couchbase/sync-gateway:latest"
+    ports:
+    - "4984:4984"
+    volumes:
+    - ./docs/:/tmp/config
+    command: "/tmp/config/sync_gw_config.json" 
+
